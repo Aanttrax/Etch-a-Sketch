@@ -1,22 +1,25 @@
-// Global Variables//
+//Global variables//
 const container = document.querySelector("#container");
 const resizebtn = document.querySelector("#resize");
-const gridlines = document.documentElement;
+const gridLines = document.documentElement;
 const cells = document.getElementsByClassName("cell");
+
 
 //Create default grid//
 function createCells(quantity = 16) {
-    for (let i = 0; i < quantity **2; ++i) {
+    for (let i = 0; i < quantity ** 2; ++i) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("cell");
         container.appendChild(newDiv);
     }
 }
 
+
 //Create color using random hexadecimal value//
 function createColor() {
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
+
 
 //Color cells if empty, otherwise decreases their brightness//
 function cellColor() {
@@ -32,6 +35,7 @@ function cellColor() {
         })
     }
 }
+
 
 //Clear cells inline code to reset their color//
 function cellClear() {
@@ -55,6 +59,7 @@ resizebtn.addEventListener("click", () => {
     cellColor();
     cellClear();
 })
+
 
 //Initialize the app//
 createCells();
